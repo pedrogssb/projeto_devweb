@@ -2,623 +2,551 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Formulário de Exame Admissional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body class="">
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-text">
+                <h1><i class="bi bi-file-earmark-medical"></i> Formulário de Exame Admissional</h1>
+                <p class="lead mb-0">Preencha todas as informações cuidadosamente</p>
+            </div>
+        </div>
 
-    <!--SEÇÃO TITULO-->
-    <section class="cor_section rounded  shadow" style="color: white;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-12">
+                <div class="form-container">
+                    <form class="needs-validation" novalidate id="examForm">
+                        <div class="accordion" id="formAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#dadosPessoais" aria-expanded="true">
+                                        <i class="bi bi-person-vcard me-2"></i> Dados Pessoais
+                                    </button>
+                                </h2>
+                                <div id="dadosPessoais" class="accordion-collapse collapse show" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="nome" 
+                                                           placeholder="Nome Completo" required
+                                                           pattern="[A-Za-zÀ-ú\s]{5,}">
+                                                    <label for="nome" class="required-field">Nome Completo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira um nome válido (mínimo 5 caracteres)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="sobrenome" 
+                                                           placeholder="Sobrenome" required>
+                                                    <label for="sobrenome" class="required-field">Sobrenome</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira seu sobrenome
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="cpf" 
+                                                           placeholder="CPF" required>
+                                                    <label for="cpf" class="required-field">CPF</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira um CPF válido
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="genero" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="Mulher cis">Mulher cis</option>
+                                                        <option value="Mulher trans">Mulher trans</option>
+                                                        <option value="Homem cis">Homem cis</option>
+                                                        <option value="Homem trans">Homem trans</option>
+                                                        <option value="Não binário">Não binário</option>
+                                                    </select>
+                                                    <label for="genero" class="required-field">Gênero</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="date" class="form-control" id="dataNascimento" 
+                                                           placeholder="Data de Nascimento" required>
+                                                    <label for="dataNascimento" class="required-field">Data de Nascimento</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira uma data válida
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="cargo" 
+                                                           placeholder="Cargo" required>
+                                                    <label for="cargo" class="required-field">Cargo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira seu cargo
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#habitosAtividades" aria-expanded="false">
+                                        <i class="bi bi-activity me-2"></i> Hábitos e Atividades
+                                    </button>
+                                </h2>
+                                <div id="habitosAtividades" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="frequenciaExercicio">
+                                                        <option value="" selected>Selecione uma opção</option>
+                                                        <option value="Uma a duas vezes por semana">Uma a duas vezes por semana</option>
+                                                        <option value="Três a quatro vezes por semana">Três a quatro vezes por semana</option>
+                                                        <option value="Quatro a cinco vezes por semana">Quatro a cinco vezes por semana</option>
+                                                        <option value="Cinco a seis vezes por semana">Cinco a seis vezes por semana</option>
+                                                        <option value="Não costumo me exercitar">Não costumo me exercitar</option>
+                                                    </select>
+                                                    <label for="frequenciaExercicio">Frequência de exercícios</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" id="hobbies" 
+                                                              placeholder="Hobbies" style="height: 100px"></textarea>
+                                                    <label for="hobbies">Hobbies</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label required-field">Já fez alguma atividade laborativa?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atividadeLaborativa" id="atividadeLaborativaS" value="Sim" required>
+                                                        <label class="form-check-label" for="atividadeLaborativaS">Sim</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atividadeLaborativa" id="atividadeLaborativaN" value="Não">
+                                                        <label class="form-check-label" for="atividadeLaborativaN">Não</label>
+                                                    </div>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12" id="descricaoAtividadeDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" id="descricaoAtividade" 
+                                                              placeholder="Descreva a atividade" style="height: 100px"></textarea>
+                                                    <label for="descricaoAtividade">Descreva a atividade laborativa</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#historicoSaude" aria-expanded="false">
+                                        <i class="bi bi-heart-pulse me-2"></i> Histórico de Saúde
+                                    </button>
+                                </h2>
+                                <div id="historicoSaude" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <h5 class="mb-3">Histórico Familiar</h5>
+                                        <div class="row g-3 mb-4">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reumatismoFamilia">
+                                                    <label class="form-check-label" for="reumatismoFamilia">Reumatismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alcoolismoFamilia">
+                                                    <label class="form-check-label" for="alcoolismoFamilia">Alcoolismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoFamilia">
+                                                    <label class="form-check-label" for="doencaCoracaoFamilia">Doença de coração</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cancerFamilia">
+                                                    <label class="form-check-label" for="cancerFamilia">Câncer</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alergiasFamilia">
+                                                    <label class="form-check-label" for="alergiasFamilia">Alergias</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaFamilia">
+                                                    <label class="form-check-label" for="pressaoArterialAltaFamilia">Pressão arterial alta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="diabetesFamilia">
+                                                    <label class="form-check-label" for="diabetesFamilia">Diabetes</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="epilepsiaFamilia">
+                                                    <label class="form-check-label" for="epilepsiaFamilia">Epilepsia</label>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
+                                                        <label class="form-check-label" for="outrasMolestiasFamilia">Outros</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasFamilia" placeholder="Descreva" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <h5 class="mb-3">Histórico Pessoal</h5>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reumatismoPessoal">
+                                                    <label class="form-check-label" for="reumatismoPessoal">Reumatismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alcoolismoPessoal">
+                                                    <label class="form-check-label" for="alcoolismoPessoal">Alcoolismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoPessoal">
+                                                    <label class="form-check-label" for="doencaCoracaoPessoal">Doença de coração</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cancerPessoal">
+                                                    <label class="form-check-label" for="cancerPessoal">Câncer</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alergiasPessoal">
+                                                    <label class="form-check-label" for="alergiasPessoal">Alergias</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaPessoal">
+                                                    <label class="form-check-label" for="pressaoArterialAltaPessoal">Pressão arterial alta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="diabetesPessoal">
+                                                    <label class="form-check-label" for="diabetesPessoal">Diabetes</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="epilepsiaPessoal">
+                                                    <label class="form-check-label" for="epilepsiaPessoal">Epilepsia</label>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="outrasMolestiasPessoal">
+                                                        <label class="form-check-label" for="outrasMolestiasPessoal">Outros</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasPessoal" placeholder="Descreva" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#antecedentesMedicos" aria-expanded="false">
+                                        <i class="bi bi-file-medical me-2"></i> Antecedentes Médicos
+                                    </button>
+                                </h2>
+                                <div id="antecedentesMedicos" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="alergiasMedicas">
+                                                        <label class="form-check-label" for="alergiasMedicas">Alergias:</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descAlergiasMedicas" placeholder="Se sim, quais" disabled>
+                                                </div>
+                                                
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cirurgias">
+                                                        <label class="form-check-label" for="cirurgias">Cirurgias:</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descCirurgias" placeholder="Se sim, quais" disabled>
+                                                </div>
+                                                
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="medicamentos">
+                                                        <label class="form-check-label" for="medicamentos">Medicamentos contínuos:</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descMedicamentos" placeholder="Se sim, quais" disabled>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="tipoSanguineo" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="A+">A+</option>
+                                                        <option value="A-">A-</option>
+                                                        <option value="B+">B+</option>
+                                                        <option value="B-">B-</option>
+                                                        <option value="AB+">AB+</option>
+                                                        <option value="AB-">AB-</option>
+                                                        <option value="O+">O+</option>
+                                                        <option value="O-">O-</option>
+                                                        <option value="nao_sei">Não sei</option>
+                                                    </select>
+                                                    <label for="tipoSanguineo" class="required-field">Tipo Sanguíneo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="doadorSangue" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="sim">Sim</option>
+                                                        <option value="nao">Não</option>
+                                                    </select>
+                                                    <label for="doadorSangue" class="required-field">É doador de sangue?</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#habitos" aria-expanded="false">
+                                        <i class="bi bi-cup-hot me-2"></i> Hábitos
+                                    </button>
+                                </h2>
+                                <div id="habitos" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="bebidaAlcoolica" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não consumo</option>
+                                                        <option value="social">Socialmente</option>
+                                                        <option value="moderado">Moderadamente</option>
+                                                        <option value="excessivo">Excessivamente</option>
+                                                    </select>
+                                                    <label for="bebidaAlcoolica" class="required-field">Consumo de álcool</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="tabagismo" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não fumo</option>
+                                                        <option value="social">Socialmente</option>
+                                                        <option value="moderado">Moderadamente</option>
+                                                        <option value="excessivo">Excessivamente</option>
+                                                        <option value="ex-fumante">Ex-fumante</option>
+                                                    </select>
+                                                    <label for="tabagismo" class="required-field">Tabagismo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="usoDrogas" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não uso</option>
+                                                        <option value="ocasional">Ocasionalmente</option>
+                                                        <option value="frequente">Frequentemente</option>
+                                                        <option value="ex-usuario">Ex-usuário</option>
+                                                    </select>
+                                                    <label for="usoDrogas" class="required-field">Uso de drogas</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="pcd" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="pcd" class="required-field">É PCD?</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12" id="descPcdDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" id="descPcd" 
+                                                              placeholder="Descreva a deficiência" style="height: 100px"></textarea>
+                                                    <label for="descPcd">Descreva a deficiência</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="gestacionalAccordion" style="display: none;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#historicoGestacional" aria-expanded="false">
+                                        <i class="bi bi-gender-female me-2"></i> Histórico Gestacional
+                                    </button>
+                                </h2>
+                                <div id="historicoGestacional" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="gestacoes">
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="gestacoes">Teve gestações?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="quantidadeGestacoesDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="quantidadeGestacoes" min="0" placeholder="Quantidade">
+                                                    <label for="quantidadeGestacoes">Quantas gestações?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="cesariaDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="cesaria">
+                                                        <option value="" selected>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="cesaria">Teve cesárea?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="quantidadeCesariaDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="quantidadeCesaria" min="0" placeholder="Quantidade">
+                                                    <label for="quantidadeCesaria">Quantas cesáreas?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="partoNormalDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="partoNormal">
+                                                        <option value="" selected>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="partoNormal">Teve parto normal?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="quantidadePartoNormalDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="quantidadePartoNormal" min="0" placeholder="Quantidade">
+                                                    <label for="quantidadePartoNormal">Quantos partos normais?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="container-fluid ">
-            <div class="container pt-4 pb-4  ">
-                <div class="d-flex justify-content-center">
-                    <h1 >
-                        <i class="fa-regular fa-hospital "></i>
-                        Formularia de Exame Admissional
-                    </h1>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <h5 class="mt-1 " style="color: #3a4a40;">Preencha o formulario abaixo cuidadosamente</h5>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <button type="reset" class="btn btn-outline-secondary me-md-2">
+                                <i class="bi bi-x-circle"></i> Limpar Formulário
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Salvar Formulário
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
         </div>
-        
-
-    </section>
-
-    <!--SEÇÃO FORMULARIO-->
-    <section class="mt-5 text-dark">
-
-        <!--primeira seção-->
-        <div id="pagina1">
-
-            <form action="">
-                <div class="container bg-white rounded shadow pt-3 pb-3">
-                    <div class="row">
-                        <div class="col-md-4">
-        
-                            <label for="nome" class=" form-label">Nome:</label>
-                            <input type="text" class="form-control" placeholder="Ex: Joaquim" id="nome">
-            
-                        </div>
-                        <div class="col-md-4">
-        
-                            <label for="sobrenome" class=" form-label">Sobrenome:</label>
-                            <input type="text" class="form-control" placeholder="Ex: Silva" id="sobrenome">
-            
-                        </div>
-                        <div class="col-md-4">
-        
-                            <label for="CPF" class=" form-label">CPF:</label>
-                            <input type="number" class="form-control" placeholder="Ex: 52368642838" id="CPF">
-            
-                        </div>
-                        <div class="col-md-4 pt-3">
-        
-                            <label for="genero" class=" form-label">Genêro:</label>
-                            <select name="genero" id="genero" class="form-select">
-                                <option selected>Selecione uma opção</option>
-                                <option value="">Mulher cis</option>
-                                <option value="">Mulher trans</option>
-                                <option value="">Homem cis</option>
-                                <option value="">Homem trans</option>
-                                <option value="">Não binario</option>
-        
-                            </select>
-            
-                        </div>
-                        <div class="col-md-4 pt-3">
-        
-                            <label for="dataNascimento" class=" form-label">Data de nascimento:</label>
-                            <input type="date" class="form-control" id="dataNascimento">
-            
-                        </div>
-                        <div class="col-md-4 pt-3">
-        
-                            <label for="cargo" class=" form-label">Cargo:</label>
-                            <input type="text" class="form-control" placeholder="Ex: Engenheiro civil" id="cargo">
-            
-                        </div>
-        
-                        
-                    </div>
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>
-                    <button type="button" class="btn cor_salvar" onclick="mostrarPagina('pagina2')" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>
-                </div>
-            </form>
-            
+    </div>
+    <!-- Modal de Confirmação -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="confirmationModalLabel"><i class="bi bi-check-circle-fill"></i> Formulário Enviado</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>Seu formulário de exame admissional foi enviado com sucesso!</p>
+            <p>Em breve entraremos em contato para agendar seu exame médico.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirmar</button>
+            </div>
         </div>
-        
-        <!--segunda seção-->
-        <div id="pagina2" style="display: none;">
-            <form action="">
-                <div class="container bg-white mt-5 rounded shadow pt-3 pb-3">
-                    <div class="row">
-                        <div class="col-md-4">
-        
-                            <label for="" class=" form-label">Com que frequência você se exercita?</label>
-        
-                            <select class="form-select" name="" id="">
-        
-                                <option selected>Selecione uma opção</option>
-                                <option value="">Uma a duas vezes por semana</option>
-                                <option value="">Três a quatro vezes por semana</option>
-                                <option value="">Quatro a cinco vezes por seman</option>
-                                <option value="">Cinco a seis vezes por semana</option>
-                                <option value="">Não costumo me exercitar</option>
-        
-                            </select>
-            
-                        </div>
-                        
-                    </div>
-        
-                    <div class="row">
-                        <div class="col-md-6">
-        
-                            <label for="hobbies" class="mt-3 form-label">Quais são seus hobbies?</label>
-                            <textarea class="form-control" name="" id="hobbies" placeholder="Escreva aqui"></textarea>
-            
-                        </div>
-                    </div>
-        
-                    <div class="row">
-                        <div class="col-md-6">
-        
-                            <label for="atividadeLaborativa" class="mt-3 form-label">Ja fez alguma atividade laborativa?</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="atividadeLaborativaS" name="atividadeLaborativa" checked>
-                                <label for="atividadeLaborativaS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check ">
-                                <input class="form-check-input" type="radio" id="atividadeLaborativaN" name="atividadeLaborativa">
-                                <label for="atividadeLaborativaN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="descricaoAtividadeLaborativa" class="form-label mt-2">Se sim, descreva:</label>
-                            <textarea class="form-control" name="" id="descricaoAtividadeLaborativa" placeholder="Escreva aqui"></textarea>
-                            
-                        </div>
-        
-                    </div>
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="button" class="btn cor_retornar me-3" onclick="mostrarPagina('pagina1')" >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Anterior
-                    </button>
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>                    
-                    <button type="button" class="btn cor_salvar" onclick="mostrarPagina('pagina3')" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>                
-                </div>
-            </form>
         </div>
-        
-        <!--Terceira seção-->
-        <div id="pagina3" style="display: none;">
-            <form action="">
-                <div class="container mt-5 bg-white rounded shadow pt-3 pb-3">
+    </div>
 
-                    <div class="row ">
-        
-                        <label for="" class="form-label mb-3">Alguem em sua familia possui algumas das seguintes molestias?</label>
-            
-                        <div class="col-md-4">
-            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="reumatismoFamilia">
-                                <label class="form-check-label" for="reumatismoFamilia">Reumatismo</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="alcoolismoFamilia">
-                                <label class="form-check-label" for="alcoolismoFamilia">Alcoolismo</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="doençaCoracaoFamilia">
-                                <label class="form-check-label" for="doençaCoracaoFamilia">Doença de coração</label>
-                            </div>
-            
-                        </div>
-            
-                        <div class="col-md-4">
-            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="cancerFamilia">
-                                <label class="form-check-label" for="cancerFamilia">Cancêr</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="alergiasFamilia">
-                                <label class="form-check-label" for="alergiasFamilia">Alergias</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="pressaoArterialAltaFamilia">
-                                <label class="form-check-label" for="pressaoArterialAltaFamilia">Pressão arterial alta</label>
-                            </div>
-            
-                        </div>
-                        <div class="col-md-4">
-            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="diabetesFamilia">
-                                <label class="form-check-label" for="diabetesFamilia">Diabetes</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="epilepsiaFamilia">
-                                <label class="form-check-label" for="epilepsiaFamilia">Epilepsia</label>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
-                                    <label class="form-check-label" for="outrasMolestiasFamilia">Outros</label>
-                                </div>
-                                <input type="text" class="form-control ms-4" placeholder="Se outros, descreva">
-            
-                            </div>
-                            
-            
-                        </div>
-            
-                    </div>
-        
-                    <div class="row mt-3">
-        
-                        <label for="" class="form-label mb-3">Você possui alguma das seguintes molestias?</label>
-            
-                        <div class="col-md-4">
-            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="reumatismoFamilia">
-                                <label class="form-check-label" for="reumatismoFamilia">Reumatismo</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="alcoolismoFamilia">
-                                <label class="form-check-label" for="alcoolismoFamilia">Alcoolismo</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="doençaCoracaoFamilia">
-                                <label class="form-check-label" for="doençaCoracaoFamilia">Doença de coração</label>
-                            </div>
-            
-                        </div>
-            
-                        <div class="col-md-4">
-            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="cancerFamilia">
-                                <label class="form-check-label" for="cancerFamilia">Cancêr</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="alergiasFamilia">
-                                <label class="form-check-label" for="alergiasFamilia">Alergias</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="pressaoArterialAltaFamilia">
-                                <label class="form-check-label" for="pressaoArterialAltaFamilia">Pressão arterial alta</label>
-                            </div>
-            
-                        </div>
-                        <div class="col-md-4">
-            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="diabetesFamilia">
-                                <label class="form-check-label" for="diabetesFamilia">Diabetes</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="epilepsiaFamilia">
-                                <label class="form-check-label" for="epilepsiaFamilia">Epilepsia</label>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
-                                    <label class="form-check-label" for="outrasMolestiasFamilia">Outros</label>
-                                </div>
-                                <input type="text" class="form-control ms-4" placeholder="Se outros, descreva">
-            
-                            </div>
-            
-                        </div>
-            
-                    </div>
-        
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="button" class="btn cor_retornar me-3" onclick="mostrarPagina('pagina2')" >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Anterior
-                    </button>
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>                    
-                    <button type="button" class="btn cor_salvar" onclick="mostrarPagina('pagina4')" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>
-                    </div>
-            </form>
-        </div>
-        
-
-        <!--Quarta seção-->
-        <div id="pagina4" style="display: none;">
-            <form action="">
-                <div class="container mt-5 bg-white rounded shadow pt-3 pb-3">
-
-                    <div class="row ">
-        
-                        <label for="" class="form-label mb-3">Antecedentes morbidos pessoais:</label>
-            
-                        <div class="col-md-6">
-            
-                            <div class="d-flex align-items-center">
-                                <div class="form-check col-4 ">
-                                    <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
-                                    <label class="form-check-label" for="outrasMolestiasFamilia">Alergias:</label>
-                                </div>
-                                <input type="text" class="form-control ms-4" placeholder="Se sim, qual">
-            
-                            </div>
-                            <div class="d-flex align-items-center mt-1">
-                                <div class="form-check col-4">
-                                    <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
-                                    <label class="form-check-label" for="outrasMolestiasFamilia">Cirurgia:</label>
-                                </div>
-                                <input type="text" class="form-control ms-4" placeholder="Se sim, qual">
-            
-                            </div>
-                            <div class="d-flex align-items-center mt-1">
-                                <div class="form-check col-4">
-                                    <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
-                                    <label class="form-check-label" for="outrasMolestiasFamilia">Medicamento continuo:</label>
-                                </div>
-                                <input type="text" class="form-control ms-4" placeholder="Se sim, qual">
-            
-                            </div>
-            
-                        </div>
-            
-                    </div>
-        
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="button" class="btn cor_retornar me-3" onclick="mostrarPagina('pagina3')" >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Anterior
-                    </button>
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>                    
-                    <button type="button" class="btn cor_salvar" onclick="mostrarPagina('pagina5')" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>                
-                </div>
-            </form>
-        </div>
-
-        <!--Quinta seção-->
-        <div id="pagina5" style="display: none;">
-            <form action="">
-                <div class="container mt-5 bg-white rounded shadow pt-3 pb-3">
-                    <div class="row">
-        
-                        <div class="col-md-4">
-        
-                            <label for="tipoSanguineo" class="form-label">Conhece seu tipo sanguineo?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="conheceTipoSanguineoS" name="conheceTipoSanguineo" checked>
-                                <label for="conheceTipoSanguineoS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="conheceTipoSanguineoN" name="conheceTipoSanguineo">
-                                <label for="conheceTipoSanguineoN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="tipoSanguineo" class="form-label mt-2">Se sim, qual?</label>
-                            <input type="text" class="form-control" placeholder="Escreva aqui" id="tipoSanguineo">
-        
-                        </div>
-        
-                        <div class="col-md-4">
-        
-                            <label for="tipoSanguineo" class="form-label">Ja sofreu alguma fratura ossea?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="fraturaOsseaS" name="fraturaOssea" checked>
-                                <label for="fraturaOsseaS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="fraturaOsseaN" name="fraturaOssea">
-                                <label for="fraturaOsseaN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="fraturaOssea" class="form-label mt-2">Se sim, qual?</label>
-                            <input type="text" class="form-control" placeholder="Escreva aqui" id="fraturaOssea">
-        
-                        </div>
-        
-                        <div class="col-md-4">
-        
-                            <label for="tipoSanguineo" class="form-label">Ingere bebidas alcoolicas?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="bebidaAlcoolicaS" name="bebidaAlcoolica" checked>
-                                <label for="bebidaAlcoolicaS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="bebidaAlcoolicaN" name="bebidaAlcoolica">
-                                <label for="bebidaAlcoolicaN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="bebidaAlcoolica" class="form-label mt-2">Se sim, com que frequencia?</label>
-                            <input type="text" class="form-control" placeholder="Escreva aqui" id="bebidaAlcoolica">
-        
-                        </div>
-        
-                        <div class="col-md-4 pt-3">
-        
-                            <label for="tipoSanguineo" class="form-label">Tabagismo?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="tabagismoS" name="tabagismo" checked>
-                                <label for="tabagismoS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="tabagismoN" name="tabagismo">
-                                <label for="tabagismoN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="frequenciaTabagismo" class="form-label mt-2">Se sim, com que frequencia?</label>
-                            <input type="text" class="form-control" placeholder="Escreva aqui" id="frequenciaTabagismo">
-        
-                        </div>
-        
-                        <div class="col-md-4 pt-3">
-        
-                            <label for="tipoSanguineo" class="form-label">Faz uso de drogas?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="usaDrogasS" name="usaDrogas" checked>
-                                <label for="usaDrogasS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="SusaDrogasN" name="usaDrogas">
-                                <label for="usaDrogasN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="usaDrogas" class="form-label mt-2">Se sim, qual?</label>
-                            <input type="text" class="form-control" placeholder="Escreva aqui" id="usaDrogas">
-        
-                        </div>
-        
-                        <div class="col-md-4 pt-3">
-        
-                            <label for="tipoSanguineo" class="form-label">E PCD?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="PCDS" name="PCD" checked>
-                                <label for="PCDS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="PCDN" name="PCD">
-                                <label for="PCDN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="PCD" class="form-label mt-2">Se sim, especifique:</label>
-                            <input type="text" class="form-control" placeholder="Escreva aqui" id="PCD">
-        
-                        </div>
-        
-        
-                    </div>
-        
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="button" class="btn cor_retornar me-3" onclick="mostrarPagina('pagina4')" >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Anterior
-                    </button>
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>                    
-                    <button type="button" class="btn cor_salvar" onclick="mostrarPagina('pagina6')" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>                
-                </div>
-            </form>
-        </div>
-
-        <!--Sexta seção-->
-        <div id="pagina6" style="display: none;">
-            <form action="">
-                <div class="container mt-5 bg-white rounded shadow pt-3 pb-3">
-                    <div class="row">
-        
-                        <div class="col-4">
-        
-                            <label for="tipoSanguineo" class="form-label">E doador de sangue?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="doadorSangueS" name="doadorSangue" checked>
-                                <label for="doadorSangueS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="doadorSangueN" name="doadorSangue">
-                                <label for="doadorSangueN" class="form-check-label">Não</label>
-                            </div>
-                        </div>
-        
-                    </div>
-        
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="button" class="btn cor_retornar me-3" onclick="mostrarPagina('pagina5')" >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Anterior
-                    </button>
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>                    
-                    <button type="button" class="btn cor_salvar" onclick="mostrarPagina('pagina7')" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>                
-                </div>
-            </form>
-        </div>
-        
-        <!--Setima seção-->
-        <div id="pagina7" style="display: none;">
-            <form action="">
-                <div class="container mt-5 bg-white rounded shadow pt-3 pb-3 mb-4">
-
-                    <h5 class="pb-2">*Exclusivo para mulheres</h5>
-                    <div class="row">
-        
-                        <div class="col-md-4">
-        
-                            <label for="" class="form-label">Teve gestações?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="gestacaoS" name="gestacao" checked>
-                                <label for="gestacaoS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="gestacaoN" name="gestacao">
-                                <label for="gestacaoN" class="form-check-label">Não</label>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-4 ">
-        
-                            <label for="" class="form-label">Cesaria?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="cesariaS" name="cesaria" checked>
-                                <label for="cesariaS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="cesariaN" name="cesaria">
-                                <label for="cesariasN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="cesaria" class="form-label mt-2">Se sim, quantos?</label>
-                            <div class="col-2">
-                                <input type="number" class="form-control"  id="cesaria">
-                            </div>
-                        </div>
-        
-                        <div class="col-md-4">
-        
-                            <label for="" class="form-label">Parto normal?</label>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="normalS" name="normal" checked>
-                                <label for="normalS" class="form-check-label">Sim</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="normalN" name="normal">
-                                <label for="normalN" class="form-check-label">Não</label>
-                            </div>
-                            <label for="normal" class="form-label mt-2">Se sim, quantos?</label>
-                            <div class="col-2">
-                                <input type="number" class="form-control"  id="normal">
-                            </div>
-        
-                        </div>
-        
-        
-                    </div>
-        
-                </div>
-                <div class="container mt-4 mb-4 d-flex justify-content-end">
-                    <button type="button" class="btn cor_retornar me-3" onclick="mostrarPagina('pagina6')" >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Anterior
-                    </button>
-                    <button type="reset" class="btn cor_apagar me-3">
-                        <i class="fa-regular fa-circle-xmark"></i>                        
-                        Apagar
-                    </button>                    
-                    <button type="button" class="btn cor_salvar" >
-                        <i class="fa-regular fa-floppy-disk me-1"></i>
-                        Salvar e avançar
-                    </button>                
-                </div>
-            </form>
-        </div>
-        
-
-    </section>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="JS/script.js"></script>
-    <script src="https://kit.fontawesome.com/28468a4254.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
