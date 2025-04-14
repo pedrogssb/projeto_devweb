@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Formulário de Exame Admissional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-text">
+                <h1><i class="bi bi-file-earmark-medical"></i> Formulário de Exame Admissional</h1>
+                <p class="lead mb-0">Preencha todas as informações cuidadosamente</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-12">
+                <div class="form-container">
+                    <form class="needs-validation" novalidate id="examForm">
+                        <div class="accordion" id="formAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#dadosPessoais" aria-expanded="true">
+                                        <i class="bi bi-person-vcard me-2"></i> Dados Pessoais
+                                    </button>
+                                </h2>
+                                <div id="dadosPessoais" class="accordion-collapse collapse show" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="nome" 
+                                                           placeholder="Nome Completo" required
+                                                           pattern="[A-Za-zÀ-ú\s]{5,}">
+                                                    <label for="nome" class="required-field">Nome Completo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira um nome válido (mínimo 5 caracteres)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="sobrenome" 
+                                                           placeholder="Sobrenome" required>
+                                                    <label for="sobrenome" class="required-field">Sobrenome</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira seu sobrenome
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="cpf" 
+                                                           placeholder="CPF" required>
+                                                    <label for="cpf" class="required-field">CPF</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira um CPF válido
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="genero" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="Mulher cis">Mulher cis</option>
+                                                        <option value="Mulher trans">Mulher trans</option>
+                                                        <option value="Homem cis">Homem cis</option>
+                                                        <option value="Homem trans">Homem trans</option>
+                                                        <option value="Não binário">Não binário</option>
+                                                    </select>
+                                                    <label for="genero" class="required-field">Gênero</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="date" class="form-control" id="dataNascimento" 
+                                                           placeholder="Data de Nascimento" required>
+                                                    <label for="dataNascimento" class="required-field">Data de Nascimento</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira uma data válida
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="cargo" 
+                                                           placeholder="Cargo" required>
+                                                    <label for="cargo" class="required-field">Cargo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, insira seu cargo
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#habitosAtividades" aria-expanded="false">
+                                        <i class="bi bi-activity me-2"></i> Hábitos e Atividades
+                                    </button>
+                                </h2>
+                                <div id="habitosAtividades" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="frequenciaExercicio">
+                                                        <option value="" selected>Selecione uma opção</option>
+                                                        <option value="Uma a duas vezes por semana">Uma a duas vezes por semana</option>
+                                                        <option value="Três a quatro vezes por semana">Três a quatro vezes por semana</option>
+                                                        <option value="Quatro a cinco vezes por semana">Quatro a cinco vezes por semana</option>
+                                                        <option value="Cinco a seis vezes por semana">Cinco a seis vezes por semana</option>
+                                                        <option value="Não costumo me exercitar">Não costumo me exercitar</option>
+                                                    </select>
+                                                    <label for="frequenciaExercicio">Frequência de exercícios</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12">
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" id="hobbies" 
+                                                              placeholder="Hobbies" style="height: 100px"></textarea>
+                                                    <label for="hobbies">Hobbies</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label required-field">Já fez alguma atividade laborativa?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atividadeLaborativa" id="atividadeLaborativaS" value="Sim" required>
+                                                        <label class="form-check-label" for="atividadeLaborativaS">Sim</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="atividadeLaborativa" id="atividadeLaborativaN" value="Não">
+                                                        <label class="form-check-label" for="atividadeLaborativaN">Não</label>
+                                                    </div>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12" id="descricaoAtividadeDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" id="descricaoAtividade" 
+                                                              placeholder="Descreva a atividade" style="height: 100px"></textarea>
+                                                    <label for="descricaoAtividade">Descreva a atividade laborativa</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#historicoSaude" aria-expanded="false">
+                                        <i class="bi bi-heart-pulse me-2"></i> Histórico de Saúde
+                                    </button>
+                                </h2>
+                                <div id="historicoSaude" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <h5 class="mb-3">Histórico Familiar</h5>
+                                        <div class="row g-3 mb-4">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reumatismoFamilia">
+                                                    <label class="form-check-label" for="reumatismoFamilia">Reumatismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alcoolismoFamilia">
+                                                    <label class="form-check-label" for="alcoolismoFamilia">Alcoolismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoFamilia">
+                                                    <label class="form-check-label" for="doencaCoracaoFamilia">Doença de coração</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cancerFamilia">
+                                                    <label class="form-check-label" for="cancerFamilia">Câncer</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alergiasFamilia">
+                                                    <label class="form-check-label" for="alergiasFamilia">Alergias</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaFamilia">
+                                                    <label class="form-check-label" for="pressaoArterialAltaFamilia">Pressão arterial alta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="diabetesFamilia">
+                                                    <label class="form-check-label" for="diabetesFamilia">Diabetes</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="epilepsiaFamilia">
+                                                    <label class="form-check-label" for="epilepsiaFamilia">Epilepsia</label>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
+                                                        <label class="form-check-label" for="outrasMolestiasFamilia">Outros</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasFamilia" placeholder="Descreva" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <h5 class="mb-3">Histórico Pessoal</h5>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="reumatismoPessoal">
+                                                    <label class="form-check-label" for="reumatismoPessoal">Reumatismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alcoolismoPessoal">
+                                                    <label class="form-check-label" for="alcoolismoPessoal">Alcoolismo</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoPessoal">
+                                                    <label class="form-check-label" for="doencaCoracaoPessoal">Doença de coração</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cancerPessoal">
+                                                    <label class="form-check-label" for="cancerPessoal">Câncer</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="alergiasPessoal">
+                                                    <label class="form-check-label" for="alergiasPessoal">Alergias</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaPessoal">
+                                                    <label class="form-check-label" for="pressaoArterialAltaPessoal">Pressão arterial alta</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="diabetesPessoal">
+                                                    <label class="form-check-label" for="diabetesPessoal">Diabetes</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="epilepsiaPessoal">
+                                                    <label class="form-check-label" for="epilepsiaPessoal">Epilepsia</label>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="outrasMolestiasPessoal">
+                                                        <label class="form-check-label" for="outrasMolestiasPessoal">Outros</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasPessoal" placeholder="Descreva" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#antecedentesMedicos" aria-expanded="false">
+                                        <i class="bi bi-file-medical me-2"></i> Antecedentes Médicos
+                                    </button>
+                                </h2>
+                                <div id="antecedentesMedicos" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="alergiasMedicas">
+                                                        <label class="form-check-label" for="alergiasMedicas">Alergias:</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descAlergiasMedicas" placeholder="Se sim, quais" disabled>
+                                                </div>
+                                                
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="cirurgias">
+                                                        <label class="form-check-label" for="cirurgias">Cirurgias:</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descCirurgias" placeholder="Se sim, quais" disabled>
+                                                </div>
+                                                
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="medicamentos">
+                                                        <label class="form-check-label" for="medicamentos">Medicamentos contínuos:</label>
+                                                    </div>
+                                                    <input type="text" class="form-control ms-2" id="descMedicamentos" placeholder="Se sim, quais" disabled>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="tipoSanguineo" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="A+">A+</option>
+                                                        <option value="A-">A-</option>
+                                                        <option value="B+">B+</option>
+                                                        <option value="B-">B-</option>
+                                                        <option value="AB+">AB+</option>
+                                                        <option value="AB-">AB-</option>
+                                                        <option value="O+">O+</option>
+                                                        <option value="O-">O-</option>
+                                                        <option value="nao_sei">Não sei</option>
+                                                    </select>
+                                                    <label for="tipoSanguineo" class="required-field">Tipo Sanguíneo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="doadorSangue" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="sim">Sim</option>
+                                                        <option value="nao">Não</option>
+                                                    </select>
+                                                    <label for="doadorSangue" class="required-field">É doador de sangue?</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#habitos" aria-expanded="false">
+                                        <i class="bi bi-cup-hot me-2"></i> Hábitos
+                                    </button>
+                                </h2>
+                                <div id="habitos" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="bebidaAlcoolica" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não consumo</option>
+                                                        <option value="social">Socialmente</option>
+                                                        <option value="moderado">Moderadamente</option>
+                                                        <option value="excessivo">Excessivamente</option>
+                                                    </select>
+                                                    <label for="bebidaAlcoolica" class="required-field">Consumo de álcool</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="tabagismo" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não fumo</option>
+                                                        <option value="social">Socialmente</option>
+                                                        <option value="moderado">Moderadamente</option>
+                                                        <option value="excessivo">Excessivamente</option>
+                                                        <option value="ex-fumante">Ex-fumante</option>
+                                                    </select>
+                                                    <label for="tabagismo" class="required-field">Tabagismo</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="usoDrogas" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não uso</option>
+                                                        <option value="ocasional">Ocasionalmente</option>
+                                                        <option value="frequente">Frequentemente</option>
+                                                        <option value="ex-usuario">Ex-usuário</option>
+                                                    </select>
+                                                    <label for="usoDrogas" class="required-field">Uso de drogas</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="pcd" required>
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="pcd" class="required-field">É PCD?</label>
+                                                    <div class="invalid-feedback">
+                                                        Por favor, selecione uma opção
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12" id="descPcdDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <textarea class="form-control" id="descPcd" 
+                                                              placeholder="Descreva a deficiência" style="height: 100px"></textarea>
+                                                    <label for="descPcd">Descreva a deficiência</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" id="gestacionalAccordion" style="display: none;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#historicoGestacional" aria-expanded="false">
+                                        <i class="bi bi-gender-female me-2"></i> Histórico Gestacional
+                                    </button>
+                                </h2>
+                                <div id="historicoGestacional" class="accordion-collapse collapse" 
+                                     data-bs-parent="#formAccordion">
+                                    <div class="accordion-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="gestacoes">
+                                                        <option value="" selected disabled>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="gestacoes">Teve gestações?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="quantidadeGestacoesDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="quantidadeGestacoes" min="0" placeholder="Quantidade">
+                                                    <label for="quantidadeGestacoes">Quantas gestações?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="cesariaDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="cesaria">
+                                                        <option value="" selected>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="cesaria">Teve cesárea?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="quantidadeCesariaDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="quantidadeCesaria" min="0" placeholder="Quantidade">
+                                                    <label for="quantidadeCesaria">Quantas cesáreas?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="partoNormalDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="partoNormal">
+                                                        <option value="" selected>Selecione</option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                    <label for="partoNormal">Teve parto normal?</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6" id="quantidadePartoNormalDiv" style="display: none;">
+                                                <div class="form-floating mb-3">
+                                                    <input type="number" class="form-control" id="quantidadePartoNormal" min="0" placeholder="Quantidade">
+                                                    <label for="quantidadePartoNormal">Quantos partos normais?</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <button type="reset" class="btn btn-outline-secondary me-md-2">
+                                <i class="bi bi-x-circle"></i> Limpar Formulário
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Salvar Formulário
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Confirmação -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="confirmationModalLabel"><i class="bi bi-check-circle-fill"></i> Formulário Enviado</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>Seu formulário de exame admissional foi enviado com sucesso!</p>
+            <p>Em breve entraremos em contato para agendar seu exame médico.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Confirmar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
