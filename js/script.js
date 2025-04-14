@@ -43,7 +43,7 @@ $(document).ready(function() {
     });
     
     $('#genero').change(function() {
-        if ($(this).val().includes('Mulher cis' ) || $(this).val().includes('Homem trans')) {
+        if ($(this).val().includes('Mulher cis' ) || $(this).val().includes('Homem trans') || $(this).val().includes('Não binário')) {
             $('#gestacionalAccordion').show();
         } else {
             $('#gestacionalAccordion').hide();
