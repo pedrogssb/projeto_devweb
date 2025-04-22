@@ -21,10 +21,8 @@ HTML5 e JavaScript: Estruturação da página e lógica de interação utilizand
  
 Como Usar 
 Clone o repositório para o seu ambiente local: 
-bash 
-CopiarEditar 
-git clone https://github.com/seuusuario/formulario-exame-admissional.git 
+git clone https://github.com/pedrogssb/projeto_devweb.git 
  
 Abra o arquivo form.html em um navegador para visualizar e preencher o formulário. 
 O formulário pode ser utilizado para coletar informações, com validações automáticas e um feedback visual ao ser enviado. 
-    
+ 
