@@ -11,7 +11,7 @@ Seção condicional para PCD (Pessoa com Deficiência) com um campo de descriç�
 Seção exclusiva para o Histórico Gestacional, que é exibida apenas se necessário. 
 Feedback visual com modal de confirmação após o envio do formulário. 
 Validação de campos obrigatórios feita no lado do cliente (client-side), garantindo que as informações sejam corretamente preenchidas antes do envio. 
- 
+
 Tecnologias Utilizadas 
 Este projeto utiliza as seguintes tecnologias para garantir um funcionamento eficiente e uma experiência de usuário otimizada: 
 Bootstrap 5.3: Framework CSS para o design responsivo e elegante. 
