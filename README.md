@@ -27,3 +27,9 @@ Abra o arquivo form.html em um navegador para visualizar e preencher o formulár
 O formulário pode ser utilizado para coletar informações, com validações automáticas e um feedback visual ao ser enviado. 
  
 
+INTEGRANTES
+
+2856669 - Fernanda dos Santos Morais
+1734778 - Pedro Gabriel Soares da Silva Braga
+1845118 - Guilherme de Souza Novais
+3026213 - Daniel dos Santos Teixeira
