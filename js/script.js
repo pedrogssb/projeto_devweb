@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('#cpf').mask('000.000.000-00', {reverse: true});
     
     $('input[name="atividadeLaborativa"]').change(function() {
@@ -81,7 +81,7 @@ $(document).ready(function() {
     });
     
     $('#examForm').submit(function(e) {
-        e.preventDefault();
+        //e.preventDefault();
         
         if (this.checkValidity()) {
             var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
@@ -97,4 +97,4 @@ $(document).ready(function() {
             $(this).addClass('was-validated');
         }
     });
-});
+});*/

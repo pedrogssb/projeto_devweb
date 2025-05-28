@@ -20,7 +20,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-12">
                 <div class="form-container">
-                    <form class="needs-validation" novalidate id="examForm">
+                    <form class="needs-validation" novalidate id="examForm" method="POST" action="dados_controller.php">
                         <div class="accordion" id="formAccordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -35,10 +35,10 @@
                                         <div class="row g-3">
                                             <div class="col-md-6 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" id="nome" 
+                                                    <input type="text" class="form-control" id="nome" name="nome" 
                                                            placeholder="Nome Completo" required
                                                            pattern="[A-Za-zÀ-ú\s]{5,}">
-                                                    <label for="nome" class="required-field">Nome Completo</label>
+                                                    <label for="nome" class="required-field">Nome</label>
                                                     <div class="invalid-feedback">
                                                         Por favor, insira um nome válido (mínimo 5 caracteres)
                                                     </div>
@@ -47,7 +47,7 @@
                                             
                                             <div class="col-md-6 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" id="sobrenome" 
+                                                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" 
                                                            placeholder="Sobrenome" required>
                                                     <label for="sobrenome" class="required-field">Sobrenome</label>
                                                     <div class="invalid-feedback">
@@ -58,7 +58,7 @@
                                             
                                             <div class="col-md-4 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" id="cpf" 
+                                                    <input type="text" class="form-control" id="cpf" name="cpf" 
                                                            placeholder="CPF" required>
                                                     <label for="cpf" class="required-field">CPF</label>
                                                     <div class="invalid-feedback">
@@ -69,7 +69,7 @@
                                             
                                             <div class="col-md-4 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="genero" required>
+                                                    <select class="form-select" id="genero" required name="genero">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="Mulher cis">Mulher cis</option>
                                                         <option value="Mulher trans">Mulher trans</option>
@@ -86,7 +86,7 @@
                                             
                                             <div class="col-md-4 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="date" class="form-control" id="dataNascimento" 
+                                                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" 
                                                            placeholder="Data de Nascimento" required>
                                                     <label for="dataNascimento" class="required-field">Data de Nascimento</label>
                                                     <div class="invalid-feedback">
@@ -97,7 +97,7 @@
                                             
                                             <div class="col-md-6 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control" id="cargo" 
+                                                    <input type="text" class="form-control" id="cargo" name="cargo" 
                                                            placeholder="Cargo" required>
                                                     <label for="cargo" class="required-field">Cargo</label>
                                                     <div class="invalid-feedback">
@@ -123,7 +123,7 @@
                                         <div class="row g-3">
                                             <div class="col-md-6 col-12">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="frequenciaExercicio">
+                                                    <select class="form-select" id="frequenciaExercicio" name="frequenciaExercicio">
                                                         <option value="" selected>Selecione uma opção</option>
                                                         <option value="Uma a duas vezes por semana">Uma a duas vezes por semana</option>
                                                         <option value="Três a quatro vezes por semana">Três a quatro vezes por semana</option>
@@ -137,7 +137,7 @@
                                             
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
-                                                    <textarea class="form-control" id="hobbies" 
+                                                    <textarea class="form-control" id="hobbies" name="hobbies"
                                                               placeholder="Hobbies" style="height: 100px"></textarea>
                                                     <label for="hobbies">Hobbies</label>
                                                 </div>
@@ -159,10 +159,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            <div class="col-12" id="descricaoAtividadeDiv" style="display: none;">
+
+                                            <!-- Abaixo tinha um style="display: none; que eu retirei apenas para fins de testagem"-->
+                                            <div class="col-12" id="descricaoAtividadeDiv" >
                                                 <div class="form-floating mb-3">
-                                                    <textarea class="form-control" id="descricaoAtividade" 
+                                                    <textarea class="form-control" id="descricaoAtividade" name="descricaoAtividade"
                                                               placeholder="Descreva a atividade" style="height: 100px"></textarea>
                                                     <label for="descricaoAtividade">Descreva a atividade laborativa</label>
                                                 </div>
@@ -186,39 +187,39 @@
                                         <div class="row g-3 mb-4">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="reumatismoFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="reumatismoFamilia" name="historicoFamiliar[]" value="Reumatismo">
                                                     <label class="form-check-label" for="reumatismoFamilia">Reumatismo</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="alcoolismoFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="alcoolismoFamilia" name="historicoFamiliar[]" value="Alcoolismo">
                                                     <label class="form-check-label" for="alcoolismoFamilia">Alcoolismo</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoFamilia" name="historicoFamiliar[]" value="Doenca de coracao">
                                                     <label class="form-check-label" for="doencaCoracaoFamilia">Doença de coração</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="cancerFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="cancerFamilia" name="historicoFamiliar[]" value="Cancer">
                                                     <label class="form-check-label" for="cancerFamilia">Câncer</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="alergiasFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="alergiasFamilia" name="historicoFamiliar[]" value="Alergias">
                                                     <label class="form-check-label" for="alergiasFamilia">Alergias</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaFamilia" name="historicoFamiliar[]" value="Pressao arterial alta">
                                                     <label class="form-check-label" for="pressaoArterialAltaFamilia">Pressão arterial alta</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="diabetesFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="diabetesFamilia" name="historicoFamiliar[]" value="Diabetes">
                                                     <label class="form-check-label" for="diabetesFamilia">Diabetes</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="epilepsiaFamilia">
+                                                    <input class="form-check-input" type="checkbox" id="epilepsiaFamilia" name="historicoFamiliar[]" value="Epilepsia">
                                                     <label class="form-check-label" for="epilepsiaFamilia">Epilepsia</label>
                                                 </div>
                                                 <div class="d-flex align-items-center">
@@ -226,7 +227,8 @@
                                                         <input class="form-check-input" type="checkbox" id="outrasMolestiasFamilia">
                                                         <label class="form-check-label" for="outrasMolestiasFamilia">Outros</label>
                                                     </div>
-                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasFamilia" placeholder="Descreva" disabled>
+                                                    <!--Retirei o Disabled desse input-->
+                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasFamilia" placeholder="Descreva" name="historicoFamiliar[]">
                                                 </div>
                                             </div>
                                         </div>
@@ -235,39 +237,39 @@
                                         <div class="row g-3">
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="reumatismoPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="reumatismoPessoal" name="historicoPessoal[]" value="Reumatismo">
                                                     <label class="form-check-label" for="reumatismoPessoal">Reumatismo</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="alcoolismoPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="alcoolismoPessoal"name="historicoPessoal[]" value="Alcoolismo">
                                                     <label class="form-check-label" for="alcoolismoPessoal">Alcoolismo</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="doencaCoracaoPessoal" nname="historicoPessoal[]" value="Doenca de coracao">
                                                     <label class="form-check-label" for="doencaCoracaoPessoal">Doença de coração</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="cancerPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="cancerPessoal" name="historicoPessoal[]" value="Cancer">
                                                     <label class="form-check-label" for="cancerPessoal">Câncer</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="alergiasPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="alergiasPessoal" name="historicoPessoal[]" value="Alergias">
                                                     <label class="form-check-label" for="alergiasPessoal">Alergias</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="pressaoArterialAltaPessoal" name="historicoPessoal[]" value="Pressao arterial alta">
                                                     <label class="form-check-label" for="pressaoArterialAltaPessoal">Pressão arterial alta</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="diabetesPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="diabetesPessoal" name="historicoPessoal[]" value="Diabetes">
                                                     <label class="form-check-label" for="diabetesPessoal">Diabetes</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="epilepsiaPessoal">
+                                                    <input class="form-check-input" type="checkbox" id="epilepsiaPessoal" name="historicoPessoal[]" value="Epilepsia">
                                                     <label class="form-check-label" for="epilepsiaPessoal">Epilepsia</label>
                                                 </div>
                                                 <div class="d-flex align-items-center">
@@ -275,7 +277,7 @@
                                                         <input class="form-check-input" type="checkbox" id="outrasMolestiasPessoal">
                                                         <label class="form-check-label" for="outrasMolestiasPessoal">Outros</label>
                                                     </div>
-                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasPessoal" placeholder="Descreva" disabled>
+                                                    <input type="text" class="form-control ms-2" id="descOutrasMolestiasPessoal" placeholder="Descreva" name="historicoPessoal[]">
                                                 </div>
                                             </div>
                                         </div>
@@ -300,15 +302,15 @@
                                                         <input class="form-check-input" type="checkbox" id="alergiasMedicas">
                                                         <label class="form-check-label" for="alergiasMedicas">Alergias:</label>
                                                     </div>
-                                                    <input type="text" class="form-control ms-2" id="descAlergiasMedicas" placeholder="Se sim, quais" disabled>
+                                                    <input type="text" class="form-control ms-2" id="descAlergiasMedicas" placeholder="Se sim, quais" name="alergias">
                                                 </div>
                                                 
                                                 <div class="d-flex align-items-center mb-3">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="cirurgias">
+                                                        <input class="form-check-input" type="checkbox" id="cirurgias" >
                                                         <label class="form-check-label" for="cirurgias">Cirurgias:</label>
                                                     </div>
-                                                    <input type="text" class="form-control ms-2" id="descCirurgias" placeholder="Se sim, quais" disabled>
+                                                    <input type="text" class="form-control ms-2" id="descCirurgias" placeholder="Se sim, quais" name="cirurgias">
                                                 </div>
                                                 
                                                 <div class="d-flex align-items-center">
@@ -316,13 +318,13 @@
                                                         <input class="form-check-input" type="checkbox" id="medicamentos">
                                                         <label class="form-check-label" for="medicamentos">Medicamentos contínuos:</label>
                                                     </div>
-                                                    <input type="text" class="form-control ms-2" id="descMedicamentos" placeholder="Se sim, quais" disabled>
+                                                    <input type="text" class="form-control ms-2" id="descMedicamentos" placeholder="Se sim, quais" name="medicamentosContinuos">
                                                 </div>
                                             </div>
                                             
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="tipoSanguineo" required>
+                                                    <select class="form-select" id="tipoSanguineo" required name="tipoSanguineo">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="A+">A+</option>
                                                         <option value="A-">A-</option>
@@ -341,7 +343,7 @@
                                                 </div>
                                                 
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="doadorSangue" required>
+                                                    <select class="form-select" id="doadorSangue" required name="doadorSangue">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="sim">Sim</option>
                                                         <option value="nao">Não</option>
@@ -370,7 +372,7 @@
                                         <div class="row g-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="bebidaAlcoolica" required>
+                                                    <select class="form-select" id="bebidaAlcoolica" required name="bebidaAlcoolica">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="nao">Não consumo</option>
                                                         <option value="social">Socialmente</option>
@@ -386,7 +388,7 @@
                                             
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="tabagismo" required>
+                                                    <select class="form-select" id="tabagismo" required name="tabagismo">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="nao">Não fumo</option>
                                                         <option value="social">Socialmente</option>
@@ -403,7 +405,7 @@
                                             
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="usoDrogas" required>
+                                                    <select class="form-select" id="usoDrogas" required name="usoDrogas">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="nao">Não uso</option>
                                                         <option value="ocasional">Ocasionalmente</option>
@@ -419,7 +421,7 @@
                                             
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="pcd" required>
+                                                    <select class="form-select" id="pcd" required name="pcd">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="nao">Não</option>
                                                         <option value="sim">Sim</option>
@@ -431,9 +433,9 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-12" id="descPcdDiv" style="display: none;">
+                                            <div class="col-12" id="descPcdDiv">
                                                 <div class="form-floating mb-3">
-                                                    <textarea class="form-control" id="descPcd" 
+                                                    <textarea class="form-control" id="descPcd" name="descPCD" 
                                                               placeholder="Descreva a deficiência" style="height: 100px"></textarea>
                                                     <label for="descPcd">Descreva a deficiência</label>
                                                 </div>
@@ -443,7 +445,7 @@
                                 </div>
                             </div>
                             
-                            <div class="accordion-item" id="gestacionalAccordion" style="display: none;">
+                            <div class="accordion-item" id="gestacionalAccordion" >
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                             data-bs-target="#historicoGestacional" aria-expanded="false">
@@ -456,7 +458,7 @@
                                         <div class="row g-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="gestacoes">
+                                                    <select class="form-select" id="gestacoes" name="gestacao">
                                                         <option value="" selected disabled>Selecione</option>
                                                         <option value="nao">Não</option>
                                                         <option value="sim">Sim</option>
@@ -465,16 +467,16 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-6" id="quantidadeGestacoesDiv" style="display: none;">
+                                            <div class="col-md-6" id="quantidadeGestacoesDiv">
                                                 <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control" id="quantidadeGestacoes" min="0" placeholder="Quantidade">
+                                                    <input type="number" class="form-control" id="quantidadeGestacoes" min="0" placeholder="Quantidade" name="quantidadeGestacoes">
                                                     <label for="quantidadeGestacoes">Quantas gestações?</label>
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-6" id="cesariaDiv" style="display: none;">
+                                            <div class="col-md-6" id="cesariaDiv">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="cesaria">
+                                                    <select class="form-select" id="cesaria" name="cesarea">
                                                         <option value="" selected>Selecione</option>
                                                         <option value="nao">Não</option>
                                                         <option value="sim">Sim</option>
@@ -483,16 +485,16 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-6" id="quantidadeCesariaDiv" style="display: none;">
+                                            <div class="col-md-6" id="quantidadeCesariaDiv">
                                                 <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control" id="quantidadeCesaria" min="0" placeholder="Quantidade">
+                                                    <input type="number" class="form-control" id="quantidadeCesaria" min="0" placeholder="Quantidade" name="quantidadeCesarea">
                                                     <label for="quantidadeCesaria">Quantas cesáreas?</label>
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-6" id="partoNormalDiv" style="display: none;">
+                                            <div class="col-md-6" id="partoNormalDiv">
                                                 <div class="form-floating mb-3">
-                                                    <select class="form-select" id="partoNormal">
+                                                    <select class="form-select" id="partoNormal" name="partoNormal">
                                                         <option value="" selected>Selecione</option>
                                                         <option value="nao">Não</option>
                                                         <option value="sim">Sim</option>
@@ -501,9 +503,9 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-6" id="quantidadePartoNormalDiv" style="display: none;">
+                                            <div class="col-md-6" id="quantidadePartoNormalDiv">
                                                 <div class="form-floating mb-3">
-                                                    <input type="number" class="form-control" id="quantidadePartoNormal" min="0" placeholder="Quantidade">
+                                                    <input type="number" class="form-control" id="quantidadePartoNormal" min="0" placeholder="Quantidade" name="quantidadePartoNormal">
                                                     <label for="quantidadePartoNormal">Quantos partos normais?</label>
                                                 </div>
                                             </div>
