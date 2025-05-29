@@ -1,0 +1,110 @@
+COMANDO PARA CRIAR TABELA DE DADOS PESSOAIS
+
+CREATE TABLE tb_dados_pessoais (
+    id int not null PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(100) NOT null,
+    cpf varchar(30) not null unique,
+    genero varchar(30) not null,
+    data_nascimento date not null,
+    cargo varchar(100) not null
+)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO PARA ADICIONAR COLUNA FALTANTE
+
+ALTER TABLE tb_dados_pessoais ADD sobrenome varchar(100) not null;
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO PARA CRIAR A SEGUNDA TABELA
+
+CREATE TABLE tb_habitos_atividades (
+    id_habitos_atividades int not null PRIMARY KEY AUTO_INCREMENT,
+    id_pessoal int not null,
+    fequencia_exercicio varchar(100) Null,
+    hobbies text null,
+    atividade_laborativa varchar(10) not null,
+    descreva_atividade text null,
+    
+    CONSTRAINT fk_id_pessoal
+    FOREIGN KEY (id_pessoal)
+    REFERENCES tb_dados_pessoais (id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO PARA CRIAR TERCEIRA TABELA
+
+CREATE TABLE tb_historico_saude (
+    id_historico_saude int not null PRIMARY KEY AUTO_INCREMENT,
+    id_pessoal_historico_saude int not null,
+    historico_familiar varchar(100) null,
+    historico_pessoal varchar(100) null,
+    
+    CONSTRAINT fk_id_pessoal_historico_saude
+    FOREIGN KEY (id_pessoal_historico_saude)
+    REFERENCES tb_dados_pessoais (id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO PARA CRIAR QUARTA TABELA
+
+CREATE TABLE tb_antecedentes_medicos (
+    id_antecedentes_medicos int not null PRIMARY KEY AUTO_INCREMENT,
+    id_pessoal_antecedentes_medicos int not null,
+    alergias text null,
+    cirurgias text null,
+    medicamentos_continuos text null,
+    tipo_sanguineo varchar(10) not null,
+    doador_sangue varchar(10) not null,
+    
+    CONSTRAINT fk_id_pessoal_antecedentes_medicos
+    FOREIGN KEY (id_pessoal_antecedentes_medicos)
+    REFERENCES tb_dados_pessoais (id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO PARA CRIAR QUINTA TABELA
+
+CREATE TABLE tb_habitos (
+    id_habitos int not null PRIMARY KEY AUTO_INCREMENT,
+    id_pessoal_habitos int not null,
+    consumo_alcool varchar(100) not null,
+    consumo_drogas varchar(100) not null,
+    tabagismo varchar(100) not null,
+    tipo_deficiencia text not null,
+    
+    CONSTRAINT fk_id_pessoal_habitos
+    FOREIGN KEY (id_pessoal_habitos)
+    REFERENCES tb_dados_pessoais (id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO PARA CRIAR SEXTA TABELA
+
+CREATE TABLE tb_gestacoes (
+    id_gestacoes int not null PRIMARY KEY AUTO_INCREMENT,
+    id_pessoal_gestacoes int not null,
+    gestacoes int null,
+    cesarea int null,
+    normal int null,
+    
+    CONSTRAINT fk_id_pessoal_gestacoes
+    FOREIGN KEY (id_pessoal_gestacoes)
+    REFERENCES tb_dados_pessoais (id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER TABLE tb_habitos_atividades
+CHANGE COLUMN fequencia_exercicio frequencia_exercicio VARCHAR(100) not null;
+
