@@ -1,0 +1,56 @@
+
+.login-button-outside {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease; 
+    z-index: 100; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+}
+
+.login-button-outside:hover {
+    background-color: #1a7e48; 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    color: white; 
+}
+
+.login-button-outside i {
+    font-size: 1.3em; 
+}
+
+
+@media (max-width: 768px) {
+    .login-button-outside {
+        top: 15px;
+        right: 15px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        transform: none; 
+    }
+    .login-button-outside:hover {
+        transform: translateY(-2px) scale(1.03); 
+    }
+}
+
+@media (max-width: 576px) {
+    .login-button-outside {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    .login-button-outside i {
+        font-size: 1em;
+    }
+}

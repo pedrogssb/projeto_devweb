@@ -1,29 +1,32 @@
-<?php 
+<?php  
 
-    class Conexao {
+    class Conexao { 
 
-        private $host = 'localhost';
-        private $dbname = 'formulario_medico';
-        private $user = 'root';
-        private $pass = '';
+        private $host = 'localhost'; 
+        private $dbname = 'formulario_medico'; 
+        private $user = 'root'; 
+        private $pass = ''; 
 
-        public function conectar(){
-            try{
+        public function conectar(){ 
+            try{ 
 
-                $conexao = new PDO(
-                    "mysql:host=$this->host;dbname=$this->dbname",
-                    "$this->user",
-                    "$this->pass"
-                );
+                $conexao = new PDO( 
+                    "mysql:host=$this->host;dbname=$this->dbname", 
+                    "$this->user", 
+                    "$this->pass" 
+                ); 
+                $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+                $conexao->exec("set names utf8mb4"); 
 
-                return $conexao;
+                return $conexao; 
 
-            }catch(PDOException $e){
+            }catch(PDOException $e){ 
 
-                echo '<p>'.$e->getMessage().'</p>'.'<p>'.'Erro ao conectar'.'</p>';
-
-            }
-        }
-    }
+                error_log("Erro de conexão PDO: " . $e->getMessage()); 
+                echo '<p>Erro ao conectar com o banco de dados. Tente novamente mais tarde.</p>';
+                die(); 
+            } 
+        } 
+    } 
 
 ?>

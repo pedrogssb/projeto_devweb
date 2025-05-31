@@ -23,6 +23,6 @@ Como Usar
 Clone o repositório para o seu ambiente local: 
 git clone https://github.com/pedrogssb/projeto_devweb.git 
  
-Abra o arquivo form.html em um navegador para visualizar e preencher o formulário. 
+Abra o arquivo index.html em um navegador para visualizar e preencher o formulário. 
 O formulário pode ser utilizado para coletar informações, com validações automáticas e um feedback visual ao ser enviado. 
  
